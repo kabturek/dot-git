@@ -1,0 +1,71 @@
+[core]
+      editor = vim
+
+# Please, specify this variables in ~/.gitconfig-local
+# it is included in the end of this file
+# Note: include section work for git > 1.8
+# [user]
+#     email = secret?
+
+
+[user]
+  name = Marcin Domanski
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	ui = auto
+	interactive = auto
+[color "branch"]
+  current = red reverse
+  local = blue
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[alias]
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  ci = commit
+  co = checkout
+  br = branch
+  s = status -s
+  l = log
+  graph = log --all --graph --decorate --oneline -n30
+  spull = !git svn fetch && git svn rebase
+  spush = !git svn dcommit
+  filelog = log -u
+  fl = log -u
+  dlc = diff --cached HEAD^
+  dc = diff --cached
+	praise = blame
+	staged = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	oneline = log --oneline
+	amend = commit --amend
+	undo = reset --hard HEAD^
+[push]
+	default = tracking
+[log]
+	decorate = short
+[pager]
+	status = true
+	show-branch = true
+[format]
+	numbered = auto
+[core]
+	excludesfile = ~/.gitignore_global
+[include]
+  path = ~/.gitconfig-local
